@@ -15,8 +15,6 @@ Polar toPolar(Rect rect) {
   polar.len = sqrt(pow(rect.x, 2) + pow(rect.y, 2));
   polar.angle = PI/2 - atan(rect.x/rect.y);
 
-  //PI/2 - atan(rect.x/rect.y);
-
   return polar;
 }
 
