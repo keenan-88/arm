@@ -60,11 +60,13 @@ void printDebug(float baseArmAngle, float forearmAngle, float targetAngle) {
 
 int computeServoAngle(int servoIdx, SERVO_DIR servoDir) { // TODO - clean up this method
   if(servoIdx >= 0 && servoIdx < NUM_ARM_MEMBERS) {  
+
+    Serial.println(armMembers[servoIdx].angle);
     
     if(servoDir == CW && armMembers[servoIdx].angle > 2*delta) {
       armMembers[servoIdx].angle -= delta;
     }
-    else if(servoDir == CW && armMembers[servoIdx].angle < 180 - 2*delta) {
+    else if(servoDir == CCW && armMembers[servoIdx].angle < (180 - 2*delta)) {
       armMembers[servoIdx].angle += delta;
     }
   }

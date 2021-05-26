@@ -24,5 +24,5 @@ SERVO_DIR getServoInputDir(int servoIdx);
 
 int computeServoAngle(int servoIdx, SERVO_DIR servoDir);
 
-void writeServoAngle(int servoIdx, int angle);
+void writeServoAngle(int servoIdx, float angle);
 
