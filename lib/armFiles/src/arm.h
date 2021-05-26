@@ -1,5 +1,6 @@
 #include "Servo.h"
-#include "Arduino.h"
+
+#define NUM_ARM_MEMBERS 1
 
 typedef struct {
   float x, y;
@@ -9,6 +10,19 @@ typedef struct {
   float len, angle;
 } Polar;
 
-void initArm();
+typedef enum {
+  CW,
+  CCW,
+  NO_DIR
+} SERVO_DIR;
 
-void runArm();
+void initServos();
+
+void getArmPos();
+
+SERVO_DIR getServoInputDir(int servoIdx);
+
+int computeServoAngle(int servoIdx, SERVO_DIR servoDir);
+
+void writeServoAngle(int servoIdx, int angle);
+
