@@ -20,12 +20,8 @@ void loop()
     
     servoAngle = computeServoAngle(servoIdx, servoInputDir);
 
-    //float angleInRadians = 1.0 * servoAngle/180.0*PI;
-
-    //sprintf(debugBuf, "dir: %d, angle: %d, ", servoInputDir, servoAngle);
-    //Serial.print(debugBuf);
-    //Serial.println(angleInRadians);
-
     writeServoAngle(servoIdx, servoAngle);
+
+    delay(5);
   }
 }

@@ -49,12 +49,10 @@ SERVO_DIR getServoInputDir(int servoIdx) {
 
     return servoDir;
 }
-
+int pulseWidth = 0;
 void writeServoAngle(int servoIdx, float angle) {
 
-    if(servoIdx >= 0 && servoIdx < NUM_ARM_MEMBERS) {        
-        //Serial.println(angle);
-        
+    if(servoIdx >= 0 && servoIdx < NUM_ARM_MEMBERS) {                
         servoControl[servoIdx].servo.write(angle);
     }
 }
