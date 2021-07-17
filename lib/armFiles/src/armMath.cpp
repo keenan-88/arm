@@ -5,7 +5,7 @@ float delta = 1;
 
 #define MAX_ROT 180
 
-Polar armMembers[NUM_ARM_MEMBERS] = { {10, 0} };
+Polar armMembers[NUM_ARM_MEMBERS] = { {10, 0}};
 
 Rect target {0, 0};
 
@@ -63,10 +63,13 @@ void printDebug(float baseArmAngle, float forearmAngle, float targetAngle) {
 int computeServoAngle(int servoIdx, SERVO_DIR servoDir) { // TODO - clean up this method
   if(servoIdx >= 0 && servoIdx < NUM_ARM_MEMBERS) {  
     
-    if(servoDir == CW && armMembers[servoIdx].angle > 2*delta) {
+    bool aboveMinRot = armMembers[servoIdx].angle > 2*delta;
+    bool belowMaxRot = armMembers[servoIdx].angle < (MAX_ROT - 2*delta);
+
+    if(servoDir == CW && aboveMinRot) {
       armMembers[servoIdx].angle -= delta;
     }
-    else if(servoDir == CCW && armMembers[servoIdx].angle < (MAX_ROT - 2*delta)) {
+    else if(servoDir == CCW && belowMaxRot) {
       armMembers[servoIdx].angle += delta;
     }
   }
