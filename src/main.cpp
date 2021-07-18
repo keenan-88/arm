@@ -37,9 +37,9 @@ void setServoTo(float* servoAng, float targetAng)
   float lastX = -startX;
   float x = startX;
 
-  char debug[50];
-  sprintf(debug, "startX %d, lastX %d", startX, lastX);
-  Serial.println(debug);
+  //char debug[50];
+  //sprintf(debug, "startX %f, lastX %f", startX, lastX);
+  //Serial.println(debug);
 
   for(; x < lastX; x += 0.03)
   {
